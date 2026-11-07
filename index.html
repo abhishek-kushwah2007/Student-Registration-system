@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#2563eb">
+    
+     <h1><strong>Student Registration System</strong></h1>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+       
+        <p class="subtitle">Student Record Management Portal</p>
+
+        <div id="welcomeMessage" class="welcome"></div>
+
+        <!-- Registration Form -->
+        <section class="form-section">
+
+            <h2>Register New Student</h2>
+
+            <form id="studentForm">
+
+                <div class="form-group">
+                    <label for="studentName">Student Name</label>
+                    <input type="text" id="studentName"
+                        placeholder="Enter student name">
+                </div>
+
+                <div class="form-group">
+                    <label for="rollNumber">Roll Number</label>
+                    <input type="text" id="rollNumber"
+                        placeholder="Enter roll number">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email"
+                        placeholder="Enter email address">
+                </div>
+
+                <div class="form-group">
+                    <label for="course">Course Name</label>
+
+                    <select id="course">
+                        <option value="">Select Course</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Information Technology">Information Technology</option>
+                        <option value="Mechanical Engineering">Mechanical Engineering</option>
+                        <option value="Electrical Engineering">Electrical Engineering</option>
+                        <option value="Civil Engineering">Civil Engineering</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Gender</label>
+
+                    <div class="gender">
+                        <label>
+                            <input type="radio" name="gender" value="Male">
+                            Male
+                        </label>
+
+                        <label>
+                            <input type="radio" name="gender" value="Female">
+                            Female
+                        </label>
+
+                        <label>
+                            <input type="radio" name="gender" value="Other">
+                            Other
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" id="registerButton"
+                    class="submit-btn">
+                    Register Student
+                </button>
+
+                <button type="reset" class="reset-btn">
+                    Reset
+                </button>
+
+                <button type="button" id="cancelEditButton"
+                    class="cancel-btn" hidden>
+                    Cancel Edit
+                </button>
+
+            </form>
+
+            <p id="message" role="status"></p>
+
+        </section>
+
+        <!-- Student Records -->
+        <section class="records-section">
+
+            <h2>Student Records</h2>
+
+            <input type="text" id="searchInput"
+                placeholder="Search by name or roll number...">
+
+            <h3>
+                Total Students:
+                <span id="totalStudents">0</span>
+            </h3>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Roll Number</th>
+                            <th>Email</th>
+                            <th>Course</th>
+                            <th>Gender</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="studentTableBody"></tbody>
+
+                </table>
+
+            </div>
+
+            <p id="emptyMessage">
+                No student records available.
+            </p>
+
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+<script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./service-worker.js");
+    });
+}
+</script>
+</body>
+</html>
